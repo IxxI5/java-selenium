@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <!-- Maven Project Object Model (POM) version -->
+  <modelVersion>4.0.0</modelVersion>
+
+  <!-- Unique identifier for the project (groupId:artifactId:version) -->
+  <groupId>com.junit.ui.test</groupId>      <!-- Defines the project's group, usually based on the package structure -->
+  <artifactId>junit-ui-test</artifactId>    <!-- Unique name for the project within the group -->
+  <version>1.0-SNAPSHOT</version>           <!-- Project version; 'SNAPSHOT' indicates ongoing development -->
+
+  <!-- Project name and website (URL should be updated to reflect the actual project) -->
+  <name>junit-ui-test</name>
+  <!-- FIXME change it to the project's website -->
+  <url>http://www.example.com</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding> <!-- Ensures UTF-8 encoding during build -->
+    <maven.compiler.release>17</maven.compiler.release>                <!-- Specifies Java version compatibility (Java 17) -->
+  </properties>
+
+  <!-- Dependency management allows defining versions for dependencies used across multiple modules -->
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.junit</groupId>
+        <artifactId>junit-bom</artifactId>          <!-- BOM (Bill of Materials) to manage JUnit versions consistently -->
+        <version>5.11.0</version>                   <!-- Version for JUnit BOM -->
+        <type>pom</type>                            <!-- Indicates this is a POM file, not a JAR -->
+        <scope>import</scope>                       <!-- Makes BOM dependencies available without including them directly -->
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <dependencies>
+    <!-- JUnit 5 API for writing tests -->
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-api</artifactId>
+      <scope>test</scope>                         <!-- Scope 'test' means it's used only for testing, not at runtime -->
+    </dependency>
+
+    <!-- JUnit 5 support for parameterized tests (optional) -->
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-params</artifactId>
+      <scope>test</scope>
+    </dependency>
+
+    <!-- Selenium Java bindings for browser automation -->
+    <dependency>
+      <groupId>org.seleniumhq.selenium</groupId>
+      <artifactId>selenium-java</artifactId>
+      <version>4.28.1</version>                  <!-- Selenium version -->
+    </dependency>
+
+    <!-- Cucumber Core -->
+    <dependency>
+      <groupId>io.cucumber</groupId>
+       <artifactId>cucumber-java</artifactId>
+       <version>7.20.1</version>
+    </dependency>
+
+    <!-- Cucumber JUnit Integration -->
+    <dependency>
+        <groupId>io.cucumber</groupId>
+        <artifactId>cucumber-junit</artifactId>
+        <version>7.20.1</version>
+        <scope>test</scope>
+    </dependency>
+
+   <!-- Bridge between Cucumber and JUnit 5, allowing you to execute your Cucumber scenarios as JUnit tests.  -->
+    <dependency>
+      <groupId>io.cucumber</groupId>
+      <artifactId>cucumber-junit-platform-engine</artifactId>
+      <version>7.20.1</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <!-- Plugin management defines specific plugin versions to ensure build consistency -->
+    <pluginManagement>
+      <!-- Lock down plugin versions to avoid using Maven defaults -->
+      <plugins>
+
+        <!-- Plugin for cleaning the target directory before builds -->
+        <plugin>
+          <artifactId>maven-clean-plugin</artifactId>
+          <version>3.4.0</version>
+        </plugin>
+
+        <!-- Handles resource copying during the build process -->
+        <plugin>
+          <artifactId>maven-resources-plugin</artifactId>
+          <version>3.3.1</version>
+        </plugin>
+
+        <!-- Compiles Java source code -->
+        <plugin>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.13.0</version>
+        </plugin>
+
+        <!-- Executes unit tests using JUnit -->
+        <plugin>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>3.3.0</version>
+        </plugin>
+
+        <!-- Creates JAR files from the compiled classes -->
+        <plugin>
+          <artifactId>maven-jar-plugin</artifactId>
+          <version>3.4.2</version>
+        </plugin>
+
+        <!-- Installs the built artifact into the local Maven repository -->
+        <plugin>
+          <artifactId>maven-install-plugin</artifactId>
+          <version>3.1.2</version>
+        </plugin>
+
+        <!-- Deploys artifacts to remote repositories -->
+        <plugin>
+          <artifactId>maven-deploy-plugin</artifactId>
+          <version>3.1.2</version>
+        </plugin>
+
+        <!-- Generates project documentation (site lifecycle) -->
+        <plugin>
+          <artifactId>maven-site-plugin</artifactId>
+          <version>3.12.1</version>
+        </plugin>
+
+        <!-- Generates project info reports (used with the site plugin) -->
+        <plugin>
+          <artifactId>maven-project-info-reports-plugin</artifactId>
+          <version>3.6.1</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+
+</project>
+
