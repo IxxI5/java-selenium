@@ -500,7 +500,7 @@ After downloading the java-selenium repository, follow these steps:
     ```
     cd junit-ui-test
 
-    mvn test -Dtest=GoogleSearchTest_JUnit_Cucumber
+    mvn test -Dtest=GoogleSearchTest_JUnit_Cucumber_Runner
     ```
 
     **Note**: Another option is to utilize the **Testing** (🧪) function in VS Code.
