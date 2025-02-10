@@ -1,0 +1,53 @@
+# Maven target directory
+/target/
+
+# Eclipse files
+/.classpath
+/.project
+/.settings/
+
+# VS Code files
+/.vscode/
+
+# Logs
+*.log
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Compiled class files
+*.class
+
+# Package files
+*.jar
+*.war
+*.ear
+
+# Environment-specific files
+.env
+
+# Backup files
+*~
+*.swp
+
+# Test reports
+/surefire-reports/
+
+# Dependency directories
+/node_modules/
+
+# Coverage reports
+/coverage/
+
+# Temporary files
+*.tmp
+*.bak
+
+# maven output
+target/
+target/cucumber-reports.html
+target/cucumber.json
+mvn-test-output/
+surefire-reports/
+failsafe-reports/
